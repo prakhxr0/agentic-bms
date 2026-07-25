@@ -1,0 +1,15 @@
+[project]
+name = "eco-loop-building-agent"
+version = "0.1.0"
+description = "EnergyPlus Python co-simulation control loop"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas",
+]
+
+[project.optional-dependencies]
+dev = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
