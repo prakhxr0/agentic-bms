@@ -1,0 +1,49 @@
+{
+  "total_kwh": 129961.9,
+  "peak_kw": 43320643.9,
+  "pmv_comfort_pct": 18.2,
+  "avg_pmv": -1.159,
+  "total_hours": 8760,
+  "zones": {
+    "SPACE1-1": {
+      "avg_pmv": -1.194,
+      "min_pmv": -2.682,
+      "max_pmv": 0.479,
+      "comfort_pct": 19.6,
+      "total_timesteps": 8760,
+      "comfortable_timesteps": 1719
+    },
+    "SPACE2-1": {
+      "avg_pmv": -1.106,
+      "min_pmv": -2.631,
+      "max_pmv": 1.486,
+      "comfort_pct": 21.0,
+      "total_timesteps": 8760,
+      "comfortable_timesteps": 1842
+    },
+    "SPACE3-1": {
+      "avg_pmv": -1.193,
+      "min_pmv": -2.653,
+      "max_pmv": 0.444,
+      "comfort_pct": 19.7,
+      "total_timesteps": 8760,
+      "comfortable_timesteps": 1724
+    },
+    "SPACE4-1": {
+      "avg_pmv": -1.195,
+      "min_pmv": -2.65,
+      "max_pmv": 1.592,
+      "comfort_pct": 16.4,
+      "total_timesteps": 8760,
+      "comfortable_timesteps": 1437
+    },
+    "SPACE5-1": {
+      "avg_pmv": -1.104,
+      "min_pmv": -2.019,
+      "max_pmv": -0.309,
+      "comfort_pct": 14.4,
+      "total_timesteps": 8760,
+      "comfortable_timesteps": 1258
+    }
+  }
+}

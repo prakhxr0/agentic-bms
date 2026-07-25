@@ -10,8 +10,9 @@ from pyenergyplus.plugin import EnergyPlusPlugin
 
 
 class Controller(EnergyPlusPlugin):
-    def __init__(self):
+    def __init__(self, baseline_mode=False):
         super().__init__()
+        self.baseline_mode = baseline_mode
         self.cooling_sp = 24.0
         self.heating_sp = 21.0
         self.zone_name = "SPACE1-1"
@@ -34,11 +35,11 @@ class Controller(EnergyPlusPlugin):
                 self.h_sensor = h
                 break
 
-        self.h_pvar_cool = self.api.exchange.get_global_handle(state, "CoolingSetpoint")
-        self.h_pvar_heat = self.api.exchange.get_global_handle(state, "HeatingSetpoint")
-
-        self.h_ems_cool = self.api.exchange.get_ems_global_handle(state, "EMS_CoolingSetpoint")
-        self.h_ems_heat = self.api.exchange.get_ems_global_handle(state, "EMS_HeatingSetpoint")
+        if not self.baseline_mode:
+            self.h_pvar_cool = self.api.exchange.get_global_handle(state, "CoolingSetpoint")
+            self.h_pvar_heat = self.api.exchange.get_global_handle(state, "HeatingSetpoint")
+            self.h_ems_cool = self.api.exchange.get_ems_global_handle(state, "EMS_CoolingSetpoint")
+            self.h_ems_heat = self.api.exchange.get_ems_global_handle(state, "EMS_HeatingSetpoint")
 
         self.need_handles = False
 
@@ -49,6 +50,9 @@ class Controller(EnergyPlusPlugin):
             self.get_handles(state)
 
         self.step_count += 1
+
+        if self.baseline_mode:
+            return 0
 
         if self.h_pvar_cool != -1:
             self.api.exchange.set_global_value(state, self.h_pvar_cool, self.cooling_sp)
@@ -72,11 +76,13 @@ class Controller(EnergyPlusPlugin):
 
 
 _plugin_instance = None
+_baseline_mode = False
 
 
-def register_callbacks(api):
-    global _plugin_instance
-    _plugin_instance = Controller()
+def register_callbacks(api, baseline_mode=False):
+    global _plugin_instance, _baseline_mode
+    _baseline_mode = baseline_mode
+    _plugin_instance = Controller(baseline_mode=baseline_mode)
 
 
 if __name__ == "__main__":
