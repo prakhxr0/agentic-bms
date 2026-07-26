@@ -81,6 +81,21 @@ def _bar(value: float, lo: float, hi: float, width: int = 20) -> str:
     return "█" * filled + "░" * (width - filled)
 
 
+import re as _re
+_ANSI_RE = _re.compile(r"\033\[[0-9;]*m")
+
+
+def _ansi_strip(s: str) -> str:
+    """Return string with ANSI escape codes removed (visual width only)."""
+    return _ANSI_RE.sub("", s)
+
+
+def _pad(s: str, width: int) -> str:
+    """Pad string s to exact visual width, correctly accounting for ANSI codes."""
+    vis_len = len(_ansi_strip(s))
+    return s + " " * max(0, width - vis_len)
+
+
 def check_llm() -> tuple[bool, str]:
     try:
         req = urllib.request.Request(LLM_BASE_URL.rstrip("/") + "/models")
@@ -145,8 +160,8 @@ def apply_event(st: LoopState, ev: dict) -> None:
             st.weather = result
     elif kind == "llm_request":
         st.last_prompt = ev.get("user_prompt") or ""
-        st.thinking = ""
-        st.llm_content = ""
+        # Do NOT clear thinking/content here — keep previous decision's trace
+        # visible during the ~15s LLM wait instead of showing blank
         st.status = "calling LLM…"
     elif kind == "llm_thinking":
         st.thinking = ev.get("text") or ""
@@ -301,19 +316,26 @@ def render(st: LoopState, term_w: int, term_h: int) -> str:
         right.append(kv("setpoints", "awaiting first LLM decision…"))
     ld = st.last_decision
     if ld:
-        right.append(kv("last src", str(ld.get("source") or ld.get("raw_decision", {}).get("source") or "—")))
-        reason = ld.get("reasoning") or (ld.get("raw_decision") or {}).get("reasoning") or ""
-        right.append(kv("reasoning", _trunc(str(reason), col - 16)))
-    right.append(kv("status", _trunc(st.status, col - 16)))
+        dnum = ld.get("decision_num", "?")
+        src = ld.get("source") or (ld.get("raw_decision") or {}).get("source") or "—"
+        right.append(kv("last dec #", _c(BOLD + WHITE, str(dnum)) + f"  src={src}"))
+        reason = (
+            ld.get("reasoning")
+            or (ld.get("raw_decision") or {}).get("reasoning")
+            or ""
+        )
+        right.append(kv("reasoning", _c(DIM + WHITE, _trunc(str(reason), col - 16))))
+    right.append(kv("status", _c(YELLOW if "LLM" in st.status else WHITE, _trunc(st.status, col - 16))))
 
     rows = max(len(left), len(right))
     left += [""] * (rows - len(left))
     right += [""] * (rows - len(right))
     for a, b in zip(left, right):
-        # strip ANSI length approx by printing padded raw
+        # Use _pad() which strips ANSI codes before calculating pad width,
+        # so the divider │ stays aligned regardless of colored text in left column
         lines.append(
             _c(CYAN, "║")
-            + a.ljust(col + 20)[: col + 40].ljust(col + 10)
+            + _pad(a, col + 2)
             + _c(DIM, " │ ")
             + b
         )
@@ -331,15 +353,30 @@ def render(st: LoopState, term_w: int, term_h: int) -> str:
     lines.append(_c(CYAN, "╠" + "═" * (w - 2) + "╣"))
 
     # ── Thinking + response ──
-    lines.append(
+    is_calling = "calling LLM" in st.status or "thinking" in st.status
+    think_label = (
         _c(BOLD + BLUE, " LLM THINKING TRACE")
         + _c(DIM, f"   latency={st.llm_elapsed or '—'}s")
+        + (_c(YELLOW, "  ⟳ computing…") if is_calling else "")
     )
-    think = (st.thinking or "").strip() or "(no thinking yet)"
-    for ln in think.splitlines()[:10]:
-        lines.append(_c(DIM + WHITE, "  " + _trunc(ln, w - 4)))
+    lines.append(think_label)
+    think_raw = (st.thinking or "").strip()
+    if think_raw:
+        # Strip markdown bold (**text**) and leading bullet numbers for clean display
+        think_clean = _re.sub(r"\*\*(.*?)\*\*", r"\1", think_raw)
+        for ln in think_clean.splitlines()[:14]:
+            ln = ln.strip()
+            if not ln:
+                continue
+            # Colour bullet points cyan, sub-bullets white
+            if ln and ln[0].isdigit():
+                lines.append(_c(CYAN, "  " + _trunc(ln, w - 4)))
+            else:
+                lines.append(_c(WHITE, "    " + _trunc(ln, w - 6)))
+    else:
+        lines.append(_c(DIM, "  (waiting for first LLM response…)"))
     if st.llm_content:
-        lines.append(_c(BOLD + GREEN, " LLM FINAL CONTENT"))
+        lines.append(_c(BOLD + GREEN, " LLM FINAL JSON OUTPUT"))
         for ln in st.llm_content.strip().splitlines()[:4]:
             lines.append(_c(GREEN, "  " + _trunc(ln, w - 4)))
 
@@ -382,14 +419,15 @@ def run_sim_thread(mode: str, st: LoopState, proc_holder: dict) -> None:
         EPW_PATH,
         EPLUS_INSTALL,
         IDF_PATH,
-        IDF_PATH_1D,
         OUTPUT_DIR_AI,
         OUTPUT_DIR_DEMO,
     )
 
     eplus = EPLUS_INSTALL / "energyplus.exe"
+    # Always use the working 7-day IDF — the 1-day model has sizing issues.
+    # ECOLOOP_MAX_DECISIONS caps how many LLM calls fire, keeping demo short.
     if mode == "demo":
-        idf = IDF_PATH_1D if IDF_PATH_1D.exists() else IDF_PATH
+        idf = IDF_PATH  # 7-day IDF, decisions capped via ECOLOOP_MAX_DECISIONS
         out = OUTPUT_DIR_DEMO
         control = "ai"
     else:
@@ -561,8 +599,8 @@ def main() -> int:
     parser.add_argument(
         "--max-decisions",
         type=int,
-        default=8,
-        help="Cap LLM decisions for a short video (default 8; 0 = unlimited)",
+        default=10,
+        help="Cap LLM decisions for a short video (default 10; 0 = unlimited)",
     )
     args = parser.parse_args()
 

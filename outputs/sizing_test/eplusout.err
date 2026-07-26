@@ -1,0 +1,170 @@
+Program Version,EnergyPlus, Version 26.1.0-6f2e40d102, YMD=2026.07.26 23:01,
+   ************* PythonPlugin: Class Controller imported from: C:\Users\prakh\Downloads\proj\eco-loop-building-agent\plugin.py
+   ************* Beginning Zone Sizing Calculations
+   ** Severe  ** CheckWarmupConvergence: Loads Initialization, Zone="SPACE2-1" did not converge after 50 warmup days.
+   **   ~~~   ** Warmup Convergence failing during sizing.
+   **   ~~~   ** ...Environment(SizingPeriod)="CHICAGO_IL_USA ANNUAL COOLING 1% DESIGN CONDITIONS DB/MCWB"
+   **   ~~~   ** ..Max Temp Comparison = 4.17E-002 vs Temperature Convergence Tolerance=0.40 - Pass Convergence
+   **   ~~~   ** ..Min Temp Comparison = 9.98E-010 vs Temperature Convergence Tolerance=0.40 - Pass Convergence
+   **   ~~~   ** ..Max Heat Load Comparison = 9.6654E-010 vs Loads Convergence Tolerance=4.00E-002 - Pass Convergence
+   **   ~~~   ** ..Max Cool Load Comparison = 0.1753 vs Loads Convergence Tolerance=4.00E-002 - Fail Convergence
+   ** Severe  ** CheckWarmupConvergence: Loads Initialization, Zone="SPACE4-1" did not converge after 50 warmup days.
+   **   ~~~   ** ...Environment(SizingPeriod)="CHICAGO_IL_USA ANNUAL COOLING 1% DESIGN CONDITIONS DB/MCWB"
+   **   ~~~   ** ..Max Temp Comparison = 5.12E-002 vs Temperature Convergence Tolerance=0.40 - Pass Convergence
+   **   ~~~   ** ..Min Temp Comparison = 7.75E-007 vs Temperature Convergence Tolerance=0.40 - Pass Convergence
+   **   ~~~   ** ..Max Heat Load Comparison = 0.0000 vs Loads Convergence Tolerance=4.00E-002 - Pass Convergence
+   **   ~~~   ** ..Max Cool Load Comparison = 0.4258 vs Loads Convergence Tolerance=4.00E-002 - Fail Convergence
+   ** Severe  ** CheckWarmupConvergence: Loads Initialization, Zone="SPACE2-1" did not converge after 50 warmup days.
+   **   ~~~   ** ...Environment(SizingPeriod)="CHICAGO_IL_USA ANNUAL COOLING 1% DESIGN CONDITIONS DB/MCWB"
+   **   ~~~   ** ..Max Temp Comparison = 4.17E-002 vs Temperature Convergence Tolerance=0.40 - Pass Convergence
+   **   ~~~   ** ..Min Temp Comparison = 9.98E-010 vs Temperature Convergence Tolerance=0.40 - Pass Convergence
+   **   ~~~   ** ..Max Heat Load Comparison = 0.0000 vs Loads Convergence Tolerance=4.00E-002 - Pass Convergence
+   **   ~~~   ** ..Max Cool Load Comparison = 0.1753 vs Loads Convergence Tolerance=4.00E-002 - Fail Convergence
+   ** Severe  ** CheckWarmupConvergence: Loads Initialization, Zone="SPACE4-1" did not converge after 50 warmup days.
+   **   ~~~   ** ...Environment(SizingPeriod)="CHICAGO_IL_USA ANNUAL COOLING 1% DESIGN CONDITIONS DB/MCWB"
+   **   ~~~   ** ..Max Temp Comparison = 5.12E-002 vs Temperature Convergence Tolerance=0.40 - Pass Convergence
+   **   ~~~   ** ..Min Temp Comparison = 7.75E-007 vs Temperature Convergence Tolerance=0.40 - Pass Convergence
+   **   ~~~   ** ..Max Heat Load Comparison = 0.0000 vs Loads Convergence Tolerance=4.00E-002 - Pass Convergence
+   **   ~~~   ** ..Max Cool Load Comparison = 0.4258 vs Loads Convergence Tolerance=4.00E-002 - Fail Convergence
+   ** Warning ** Calculated design heating load for zone=SPACE1-1 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Severe  ** UpdateZoneSizing: Cooling supply air temperature (calculated) within 2C of zone temperature
+   **   ~~~   ** ...check zone thermostat set point and design supply air temperatures
+   **   ~~~   ** ...zone name = SPACE1-1
+   **   ~~~   ** ...design sensible cooling load = 115296.24 W
+   **   ~~~   ** ...thermostat set point temp    = 0.000 C
+   **   ~~~   ** ...zone temperature             = 14.134 C
+   **   ~~~   ** ...supply air temperature       = 14.000 C
+   **   ~~~   ** ...temperature difference       = -0.13370 C
+   **   ~~~   ** ...calculated volume flow rate  = 391159.31353 m3/s
+   **   ~~~   ** ...calculated mass flow rate    = 459958.24324 kg/s
+   ** Warning ** Calculated design heating load for zone=SPACE2-1 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Severe  ** UpdateZoneSizing: Cooling supply air temperature (calculated) within 2C of zone temperature
+   **   ~~~   ** ...check zone thermostat set point and design supply air temperatures
+   **   ~~~   ** ...zone name = SPACE2-1
+   **   ~~~   ** ...design sensible cooling load = 50430.27 W
+   **   ~~~   ** ...thermostat set point temp    = 0.000 C
+   **   ~~~   ** ...zone temperature             = 14.133 C
+   **   ~~~   ** ...supply air temperature       = 14.000 C
+   **   ~~~   ** ...temperature difference       = -0.13251 C
+   **   ~~~   ** ...calculated volume flow rate  = 167452.42696 m3/s
+   **   ~~~   ** ...calculated mass flow rate    = 196904.74307 kg/s
+   ** Warning ** Calculated design heating load for zone=SPACE3-1 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Severe  ** UpdateZoneSizing: Cooling supply air temperature (calculated) within 2C of zone temperature
+   **   ~~~   ** ...check zone thermostat set point and design supply air temperatures
+   **   ~~~   ** ...zone name = SPACE3-1
+   **   ~~~   ** ...design sensible cooling load = 114661.32 W
+   **   ~~~   ** ...thermostat set point temp    = 0.000 C
+   **   ~~~   ** ...zone temperature             = 14.126 C
+   **   ~~~   ** ...supply air temperature       = 14.000 C
+   **   ~~~   ** ...temperature difference       = -0.12561 C
+   **   ~~~   ** ...calculated volume flow rate  = 463025.79012 m3/s
+   **   ~~~   ** ...calculated mass flow rate    = 544464.93188 kg/s
+   ** Warning ** Calculated design heating load for zone=SPACE4-1 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Severe  ** UpdateZoneSizing: Cooling supply air temperature (calculated) within 2C of zone temperature
+   **   ~~~   ** ...check zone thermostat set point and design supply air temperatures
+   **   ~~~   ** ...zone name = SPACE4-1
+   **   ~~~   ** ...design sensible cooling load = 51503.03 W
+   **   ~~~   ** ...thermostat set point temp    = 0.000 C
+   **   ~~~   ** ...zone temperature             = 14.247 C
+   **   ~~~   ** ...supply air temperature       = 14.000 C
+   **   ~~~   ** ...temperature difference       = -0.24702 C
+   **   ~~~   ** ...calculated volume flow rate  = 356436.16204 m3/s
+   **   ~~~   ** ...calculated mass flow rate    = 419127.82144 kg/s
+   ** Warning ** Calculated design heating load for zone=SPACE5-1 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Severe  ** UpdateZoneSizing: Cooling supply air temperature (calculated) within 2C of zone temperature
+   **   ~~~   ** ...check zone thermostat set point and design supply air temperatures
+   **   ~~~   ** ...zone name = SPACE5-1
+   **   ~~~   ** ...design sensible cooling load = 204648.03 W
+   **   ~~~   ** ...thermostat set point temp    = 0.000 C
+   **   ~~~   ** ...zone temperature             = 14.119 C
+   **   ~~~   ** ...supply air temperature       = 14.000 C
+   **   ~~~   ** ...temperature difference       = -0.11900 C
+   **   ~~~   ** ...calculated volume flow rate  = 955434.79958 m3/s
+   **   ~~~   ** ...calculated mass flow rate    = 1123481.14116 kg/s
+   ************* Beginning System Sizing Calculations
+   ** Warning ** The design coil load is zero for Coil:Heating:Water SPACE1-1 ZONE COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or raise the
+   **   ~~~   **   system heating design supply air temperature. Also check to make sure the Preheat
+   **   ~~~   **   Design Temperature is not the same as the Central Heating Design Supply Air Temperature. 
+   ** Warning ** Calculated Relative Humidity out of range (PsyRhFnTdbWPb) 
+   **   ~~~   **  Routine=Unknown, Environment=CHICAGO_IL_USA ANNUAL COOLING 1% DESIGN CONDITIONS DB/MCWB, at Simulation time=07/21 23:45 - 24:00
+   **   ~~~   **  Dry-Bulb= 0.00 Humidity Ratio= 4.000E-003 Calculated Relative Humidity [%]= 103.44
+   **   ~~~   ** Relative Humidity being reset to 100.0%
+   ** Warning ** The design coil load is zero for Coil:Heating:Water SPACE2-1 ZONE COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or raise the
+   **   ~~~   **   system heating design supply air temperature. Also check to make sure the Preheat
+   **   ~~~   **   Design Temperature is not the same as the Central Heating Design Supply Air Temperature. 
+   ** Warning ** The design coil load is zero for Coil:Heating:Water SPACE3-1 ZONE COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or raise the
+   **   ~~~   **   system heating design supply air temperature. Also check to make sure the Preheat
+   **   ~~~   **   Design Temperature is not the same as the Central Heating Design Supply Air Temperature. 
+   ** Warning ** The design coil load is zero for Coil:Heating:Water SPACE4-1 ZONE COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or raise the
+   **   ~~~   **   system heating design supply air temperature. Also check to make sure the Preheat
+   **   ~~~   **   Design Temperature is not the same as the Central Heating Design Supply Air Temperature. 
+   ** Warning ** The design coil load is zero for Coil:Heating:Water SPACE5-1 ZONE COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or raise the
+   **   ~~~   **   system heating design supply air temperature. Also check to make sure the Preheat
+   **   ~~~   **   Design Temperature is not the same as the Central Heating Design Supply Air Temperature. 
+   ** Warning ** In calculating the design coil UA for Coil:Cooling:Water MAIN COOLING COIL 1
+   **   ~~~   ** no apparatus dew-point can be found for the initial entering and leaving conditions;
+   **   ~~~   ** the coil outlet design conditions will be changed to correct the problem.
+   **   ~~~   ** The initial design conditions are: Tair,in = 14.2014
+   **   ~~~   **                                    Wair,in = 9.001249E-003
+   **   ~~~   **                                    Twater,in = 7.0000
+   **   ~~~   **                                    Tair,out = 12.0865
+   **   ~~~   **                                    Wair,out = 8.000000E-003
+   **   ~~~   ** The revised design conditions are: Tair,out = 11.9957
+   **   ~~~   **                                    Wair,out = 8.036672E-003
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Testing Individual Supply Air Path Integrity
+   ************* All Supply Air Paths passed integrity testing
+   ************* Testing Individual Return Air Path Integrity
+   ************* All Return Air Paths passed integrity testing
+   ************* No node connection errors were found.
+   ************* Beginning Simulation
+   ** Severe  ** CalcHeatBalanceInsideSurf: The temperature of 2029575.92 C for zone="SPACE1-1", for surface="FRONT-1"
+   **   ~~~   ** ..is very far out of bounds during warmup. This may be an indication of a malformed zone.
+   **   ~~~   **  During Warmup, Environment=RUN PERIOD 1, at Simulation time=07/01 20:29 - 20:30
+   **  Fatal  ** Program terminates due to preceding condition.
+   ...Summary of Errors that led to program termination:
+   ..... Reference severe error count=10
+   ..... Last severe error=CalcHeatBalanceInsideSurf: The temperature of 2029575.92 C for zone="SPACE1-1", for surface="FRONT-1"
+   *************
+   ************* ===== Recurring Error Summary =====
+   ************* The following recurring error messages occurred.
+   *************
+   *************  ** Warning ** Calculated Relative Humidity out of range (PsyRhFnTdbWPb)
+   *************  **   ~~~   **   This error occurred 5 total times;
+   *************  **   ~~~   **   during Warmup 0 times;
+   *************  **   ~~~   **   during Sizing 0 times.
+   *************  **   ~~~   **   Max=103.440995 %  Min=103.440995 %
+   *************
+   *************
+   ************* ===== Final Error Summary =====
+   ************* The following error categories occurred.  Consider correcting or noting.
+   ************* Loads Initialization did not Converge
+   ************* ..1) very high thermal mass such as very thick concrete (solution: increase max number of warmup
+   ************* ..   days in the BUILDING object);
+   ************* ..2) moderate mass and inadequate space conditioning such that the building keeps getting warmer
+   ************* ..   and warmer on successive days (solution: add HVAC, check building thermal properties,
+   ************* ..   check if infiltration is included, make sure HVAC properly controlled);
+   ************* ..3) a soil layer modeled below the concrete slab - (solution remove this layer and read about
+   ************* ..   ground temperatures in the Auxiliary Programs document).
+   ************* ..4) unreasonable (too small) limits in the BUILDING object for temperature (.4 default) or
+   ************* ..   loads tolerances (.04 default)
+   *************
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 1 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 5 Warning; 9 Severe Errors.
+   ************* EnergyPlus Terminated--Fatal Error Detected. 16 Warning; 10 Severe Errors; Elapsed Time=00hr 00min  1.19sec

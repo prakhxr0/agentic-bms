@@ -1,0 +1,113 @@
+Program Version,EnergyPlus, Version 26.1.0-6f2e40d102, YMD=2026.07.26 23:01
+1,5,Environment Title[],Latitude[deg],Longitude[deg],Time Zone[],Elevation[m]
+2,8,Day of Simulation[],Month[],Day of Month[],DST Indicator[1=yes 0=no],Hour[],StartMinute[],EndMinute[],DayType
+3,5,Cumulative Day of Simulation[],Month[],Day of Month[],DST Indicator[1=yes 0=no],DayType  ! When Daily Report Variables Requested
+4,2,Cumulative Days of Simulation[],Month[]  ! When Monthly Report Variables Requested
+5,1,Cumulative Days of Simulation[] ! When Run Period Report Variables Requested
+6,1,Calendar Year of Simulation[] ! When Annual Report Variables Requested
+7,1,Environment,Site Outdoor Air Drybulb Temperature [C] !Hourly
+450,1,PLENUM-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+451,1,SPACE1-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+452,1,SPACE2-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+453,1,SPACE3-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+454,1,SPACE4-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+455,1,SPACE5-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+456,1,PLENUM-1,Zone Air Temperature [C] !Hourly
+457,1,PLENUM-1,Zone Air Temperature [C] !TimeStep
+592,1,PLENUM-1,Zone Air System Sensible Heating Rate [W] !Hourly
+593,1,PLENUM-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+594,1,PLENUM-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+595,1,PLENUM-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+596,1,SPACE1-1,Zone Air Temperature [C] !Hourly
+597,1,SPACE1-1,Zone Air Temperature [C] !TimeStep
+660,1,SPACE1-1,Zone Air System Sensible Heating Rate [W] !Hourly
+661,1,SPACE1-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+662,1,SPACE1-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+663,1,SPACE1-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+664,1,SPACE2-1,Zone Air Temperature [C] !Hourly
+665,1,SPACE2-1,Zone Air Temperature [C] !TimeStep
+728,1,SPACE2-1,Zone Air System Sensible Heating Rate [W] !Hourly
+729,1,SPACE2-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+730,1,SPACE2-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+731,1,SPACE2-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+732,1,SPACE3-1,Zone Air Temperature [C] !Hourly
+733,1,SPACE3-1,Zone Air Temperature [C] !TimeStep
+796,1,SPACE3-1,Zone Air System Sensible Heating Rate [W] !Hourly
+797,1,SPACE3-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+798,1,SPACE3-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+799,1,SPACE3-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+800,1,SPACE4-1,Zone Air Temperature [C] !Hourly
+801,1,SPACE4-1,Zone Air Temperature [C] !TimeStep
+864,1,SPACE4-1,Zone Air System Sensible Heating Rate [W] !Hourly
+865,1,SPACE4-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+866,1,SPACE4-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+867,1,SPACE4-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+868,1,SPACE5-1,Zone Air Temperature [C] !Hourly
+869,1,SPACE5-1,Zone Air Temperature [C] !TimeStep
+932,1,SPACE5-1,Zone Air System Sensible Heating Rate [W] !Hourly
+933,1,SPACE5-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+934,1,SPACE5-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+935,1,SPACE5-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+936,1,HOT WATER LOOP,Plant Supply Side Cooling Demand Rate [W] !Hourly
+937,1,HOT WATER LOOP,Plant Supply Side Heating Demand Rate [W] !Hourly
+938,1,CHILLED WATER LOOP,Plant Supply Side Cooling Demand Rate [W] !Hourly
+939,1,CHILLED WATER LOOP,Plant Supply Side Heating Demand Rate [W] !Hourly
+1087,1,SPACE1-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PMV [] !Hourly
+1088,1,SPACE1-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PMV [] !TimeStep
+1089,1,SPACE1-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PPD [%] !Hourly
+1090,1,SPACE2-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PMV [] !Hourly
+1091,1,SPACE2-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PPD [%] !Hourly
+1092,1,SPACE3-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PMV [] !Hourly
+1093,1,SPACE3-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PPD [%] !Hourly
+1094,1,SPACE4-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PMV [] !Hourly
+1095,1,SPACE4-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PPD [%] !Hourly
+1096,1,SPACE5-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PMV [] !Hourly
+1097,1,SPACE5-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PPD [%] !Hourly
+1160,1,SPACE1-1 ZONE COIL,Heating Coil Heating Rate [W] !Hourly
+1163,1,SPACE2-1 ZONE COIL,Heating Coil Heating Rate [W] !Hourly
+1166,1,SPACE3-1 ZONE COIL,Heating Coil Heating Rate [W] !Hourly
+1169,1,SPACE4-1 ZONE COIL,Heating Coil Heating Rate [W] !Hourly
+1172,1,SPACE5-1 ZONE COIL,Heating Coil Heating Rate [W] !Hourly
+1175,1,OA HEATING COIL 1,Heating Coil Heating Rate [W] !Hourly
+1178,1,MAIN HEATING COIL 1,Heating Coil Heating Rate [W] !Hourly
+1229,1,OA COOLING COIL 1,Cooling Coil Total Cooling Rate [W] !Hourly
+1230,1,OA COOLING COIL 1,Cooling Coil Sensible Cooling Rate [W] !Hourly
+1233,1,MAIN COOLING COIL 1,Cooling Coil Total Cooling Rate [W] !Hourly
+1234,1,MAIN COOLING COIL 1,Cooling Coil Sensible Cooling Rate [W] !Hourly
+1272,1,CENTRAL BOILER,Boiler Heating Rate [W] !Hourly
+1298,1,CENTRAL BOILER,Boiler NaturalGas Rate [W] !Hourly
+1398,1,CENTRAL CHILLER,Chiller Electricity Rate [W] !Hourly
+1424,1,CENTRAL CHILLER,Chiller Evaporator Cooling Rate [W] !Hourly
+1438,1,CENTRAL CHILLER,Chiller Evaporator Inlet Temperature [C] !Hourly
+1439,1,CENTRAL CHILLER,Chiller Evaporator Outlet Temperature [C] !Hourly
+1440,1,CENTRAL CHILLER,Chiller Evaporator Mass Flow Rate [kg/s] !Hourly
+1441,1,CENTRAL CHILLER,Chiller Condenser Heat Transfer Rate [W] !Hourly
+1492,1,HW CIRC PUMP,Pump Outlet Temperature [C] !Hourly
+1493,1,HW CIRC PUMP,Pump Mass Flow Rate [kg/s] !Hourly
+1495,1,CW CIRC PUMP,Pump Outlet Temperature [C] !Hourly
+1496,1,CW CIRC PUMP,Pump Mass Flow Rate [kg/s] !Hourly
+1497,1,MIXED AIR NODE 1,System Node Temperature [C] !Hourly
+1498,1,MIXED AIR NODE 1,System Node Humidity Ratio [kgWater/kgDryAir] !Hourly
+1499,1,MIXED AIR NODE 1,System Node Dewpoint Temperature [C] !Hourly
+1500,1,VAV SYS 1 OUTLET NODE,System Node Temperature [C] !Hourly
+1501,1,VAV SYS 1 OUTLET NODE,System Node Mass Flow Rate [kg/s] !Hourly
+1502,1,VAV SYS 1 OUTLET NODE,System Node Humidity Ratio [kgWater/kgDryAir] !Hourly
+1503,1,VAV SYS 1 OUTLET NODE,System Node Setpoint Temperature [C] !Hourly
+1504,1,OA HEATING COIL 1 WATER INLET NODE,System Node Temperature [C] !Hourly
+1505,1,OA HEATING COIL 1 WATER INLET NODE,System Node Mass Flow Rate [kg/s] !Hourly
+1506,1,MAIN HEATING COIL 1 WATER INLET NODE,System Node Mass Flow Rate [kg/s] !Hourly
+1507,1,MAIN COOLING COIL 1 WATER INLET NODE,System Node Mass Flow Rate [kg/s] !Hourly
+1508,1,OA COOLING COIL 1 WATER INLET NODE,System Node Temperature [C] !Hourly
+1509,1,OA COOLING COIL 1 WATER INLET NODE,System Node Mass Flow Rate [kg/s] !Hourly
+1510,1,OA MIXING BOX 1 INLET NODE,System Node Temperature [C] !Hourly
+1511,1,OA MIXING BOX 1 INLET NODE,System Node Mass Flow Rate [kg/s] !Hourly
+1512,1,OA MIXING BOX 1 INLET NODE,System Node Humidity Ratio [kgWater/kgDryAir] !Hourly
+1513,1,OA MIXING BOX 1 INLET NODE,System Node Setpoint Temperature [C] !Hourly
+1514,1,OA HEATING COIL 1 AIR OUTLET NODE,System Node Temperature [C] !Hourly
+1515,1,OA HEATING COIL 1 AIR OUTLET NODE,System Node Mass Flow Rate [kg/s] !Hourly
+1516,1,OA HEATING COIL 1 AIR OUTLET NODE,System Node Humidity Ratio [kgWater/kgDryAir] !Hourly
+1517,1,OA HEATING COIL 1 AIR OUTLET NODE,System Node Setpoint Temperature [C] !Hourly
+10,1,Electricity:Facility [J] !Hourly
+22,1,Electricity:Building [J] !Hourly
+1362,1,Heating:Electricity [J] !Hourly
+1401,1,Cooling:Electricity [J] !Hourly
