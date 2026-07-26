@@ -20,14 +20,24 @@ EPW_PATH = os.path.join(MODELS_DIR, "USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.ep
 def main():
     parser = argparse.ArgumentParser(description="Run EnergyPlus simulation")
     parser.add_argument("--baseline", action="store_true", help="Run in baseline mode (no setpoint override)")
+    parser.add_argument("--output-dir", type=str, default=None, help="Custom output directory (overrides default)")
     args = parser.parse_args()
 
-    if args.baseline:
+    if args.output_dir:
+        out_dir = args.output_dir
+    elif args.baseline:
         out_dir = os.path.join(OUTPUTS_DIR, "baseline")
     else:
         out_dir = os.path.join(OUTPUTS_DIR, "override")
 
     os.makedirs(out_dir, exist_ok=True)
+
+    # Inject EPW path and Groq API key as env vars so plugin/agent can find them
+    os.environ["EPW_PATH"] = EPW_PATH
+    groq_key = os.environ.get("GROQ_API_KEY")
+    if not groq_key:
+        groq_key = "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"
+        os.environ["GROQ_API_KEY"] = groq_key
 
     api = EnergyPlusAPI()
     register_callbacks(api, baseline_mode=args.baseline)

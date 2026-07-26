@@ -3602,14 +3602,19 @@
     Schedule Value;           !- Actuated Component Control Type
 
   EnergyManagementSystem:Program,
-    SetOverrideSetpoints,     !- Name
-    SET OverrideCoolSchedule = 24.0,  !- Program Line 1
-    SET OverrideHeatSchedule = 21.0;  !- Program Line 2
+    InitSetpoints,            !- Name
+    SET EMS_CoolingSetpoint = 24.0,  !- Default cooling setpoint
+    SET EMS_HeatingSetpoint = 21.0;  !- Default heating setpoint
 
   EnergyManagementSystem:ProgramCallingManager,
-    Apply Setpoint Overrides, !- Name
-    BeginZoneTimestepBeforeInitHeatBalance,  !- Calling Point
-    SetOverrideSetpoints;     !- Program Name 1
+    Init Setpoint Globals,    !- Name
+    BeginNewEnvironment,       !- Calling Point (runs before warmup)
+    InitSetpoints;            !- Program Name 1
+
+  EnergyManagementSystem:Program,
+    SetOverrideSetpoints,     !- Name
+    SET OverrideCoolSchedule = EMS_CoolingSetpoint,  !- Read from plugin global
+    SET OverrideHeatSchedule = EMS_HeatingSetpoint;  !- Read from plugin global
 
   Output:Variable,*,Zone Thermostat Cooling Setpoint Temperature,hourly;
   Output:Variable,*,Zone Thermostat Heating Setpoint Temperature,hourly;
@@ -3625,4 +3630,7 @@ Output:Meter,Electricity:Facility,hourly;
 Output:Meter,Electricity:Building,hourly;
 Output:Meter,Heating:Electricity,hourly;
 Output:Meter,Cooling:Electricity,hourly;
+
+Output:Variable,SPACE1-1 PEOPLE 1,Zone Thermal Comfort Fanger Model PMV,timestep;
+Output:Variable,*,Zone Air Temperature,timestep;
 

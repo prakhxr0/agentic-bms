@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 26.1.0-6f2e40d102, YMD=2026.07.25 20:04
+Program Version,EnergyPlus, Version 26.1.0-6f2e40d102, YMD=2026.07.26 17:30
 ! <Version>, Version ID
  Version, 26.1
 ! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
@@ -802,7 +802,7 @@ HeatTransfer Surface,C5-1,Roof,,CTF - ConductionTransferFunction,CLNG-1,1.533,1.
 ! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
 ! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
 ! <Environment:WarmupDays>, NumberofWarmupDays
-Environment,RUN PERIOD 1,WeatherFileRunPeriod,01/01/2013,12/31/2013,Tuesday,365,Use RunPeriod Specified Day,Yes,Yes,No,Yes,Yes,Clark and Allen
+Environment,RUN PERIOD 1,WeatherFileRunPeriod,01/01/2013,07/01/2013,Tuesday,182,Use RunPeriod Specified Day,Yes,Yes,No,Yes,Yes,Clark and Allen
 Environment:Daylight Saving,No,
 Environment:WarmupDays,  6
 ! <Tabular Report>,Style,Unit Conversion, Format Reals

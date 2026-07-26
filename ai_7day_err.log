@@ -1,0 +1,11 @@
+WARNING:root:SPACE1-1: Deadband violation. Adjusting.
+WARNING:root:SPACE1-1: Deadband violation. Adjusting.
+WARNING:root:SPACE1-1: Deadband violation. Adjusting.
+WARNING:root:SPACE1-1: Deadband violation. Adjusting.
+WARNING:root:SPACE1-1: Deadband violation. Adjusting.
+EnergyPlus Completed Successfully.
+Traceback (most recent call last):
+  File "C:\Users\prakh\Downloads\proj\eco-loop-building-agent\step2_ai_1day.py", line 29, in <module>
+    print(f"Output: {OUT}")
+                     ^^^
+NameError: name 'OUT' is not defined

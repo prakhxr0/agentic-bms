@@ -1,0 +1,8 @@
+{
+  "total_kwh": null,
+  "peak_kw": null,
+  "pmv_comfort_pct": 0,
+  "avg_pmv": 0,
+  "total_hours": 8760,
+  "zones": {}
+}

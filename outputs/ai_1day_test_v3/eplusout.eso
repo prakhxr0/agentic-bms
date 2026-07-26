@@ -1,0 +1,65 @@
+Program Version,EnergyPlus, Version 26.1.0-6f2e40d102, YMD=2026.07.26 04:43
+1,5,Environment Title[],Latitude[deg],Longitude[deg],Time Zone[],Elevation[m]
+2,8,Day of Simulation[],Month[],Day of Month[],DST Indicator[1=yes 0=no],Hour[],StartMinute[],EndMinute[],DayType
+3,5,Cumulative Day of Simulation[],Month[],Day of Month[],DST Indicator[1=yes 0=no],DayType  ! When Daily Report Variables Requested
+4,2,Cumulative Days of Simulation[],Month[]  ! When Monthly Report Variables Requested
+5,1,Cumulative Days of Simulation[] ! When Run Period Report Variables Requested
+6,1,Calendar Year of Simulation[] ! When Annual Report Variables Requested
+7,1,Environment,Site Outdoor Air Drybulb Temperature [C] !Hourly
+450,1,PLENUM-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+451,1,SPACE1-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+452,1,SPACE2-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+453,1,SPACE3-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+454,1,SPACE4-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+455,1,SPACE5-1,Zone Mean Air Dewpoint Temperature [C] !Hourly
+456,1,PLENUM-1,Zone Air Temperature [C] !Hourly
+457,1,PLENUM-1,Zone Air Temperature [C] !TimeStep
+592,1,PLENUM-1,Zone Air System Sensible Heating Rate [W] !Hourly
+593,1,PLENUM-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+594,1,PLENUM-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+595,1,PLENUM-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+596,1,SPACE1-1,Zone Air Temperature [C] !Hourly
+597,1,SPACE1-1,Zone Air Temperature [C] !TimeStep
+660,1,SPACE1-1,Zone Air System Sensible Heating Rate [W] !Hourly
+661,1,SPACE1-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+662,1,SPACE1-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+663,1,SPACE1-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+664,1,SPACE2-1,Zone Air Temperature [C] !Hourly
+665,1,SPACE2-1,Zone Air Temperature [C] !TimeStep
+728,1,SPACE2-1,Zone Air System Sensible Heating Rate [W] !Hourly
+729,1,SPACE2-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+730,1,SPACE2-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+731,1,SPACE2-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+732,1,SPACE3-1,Zone Air Temperature [C] !Hourly
+733,1,SPACE3-1,Zone Air Temperature [C] !TimeStep
+796,1,SPACE3-1,Zone Air System Sensible Heating Rate [W] !Hourly
+797,1,SPACE3-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+798,1,SPACE3-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+799,1,SPACE3-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+800,1,SPACE4-1,Zone Air Temperature [C] !Hourly
+801,1,SPACE4-1,Zone Air Temperature [C] !TimeStep
+864,1,SPACE4-1,Zone Air System Sensible Heating Rate [W] !Hourly
+865,1,SPACE4-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+866,1,SPACE4-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+867,1,SPACE4-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+868,1,SPACE5-1,Zone Air Temperature [C] !Hourly
+869,1,SPACE5-1,Zone Air Temperature [C] !TimeStep
+932,1,SPACE5-1,Zone Air System Sensible Heating Rate [W] !Hourly
+933,1,SPACE5-1,Zone Air System Sensible Cooling Rate [W] !Hourly
+934,1,SPACE5-1,Zone Thermostat Heating Setpoint Temperature [C] !Hourly
+935,1,SPACE5-1,Zone Thermostat Cooling Setpoint Temperature [C] !Hourly
+936,1,HOT WATER LOOP,Plant Supply Side Cooling Demand Rate [W] !Hourly
+937,1,HOT WATER LOOP,Plant Supply Side Heating Demand Rate [W] !Hourly
+938,1,CHILLED WATER LOOP,Plant Supply Side Cooling Demand Rate [W] !Hourly
+939,1,CHILLED WATER LOOP,Plant Supply Side Heating Demand Rate [W] !Hourly
+1002,1,SPACE1-1 ZONE COIL,Heating Coil Heating Rate [W] !Hourly
+1005,1,SPACE2-1 ZONE COIL,Heating Coil Heating Rate [W] !Hourly
+1008,1,SPACE3-1 ZONE COIL,Heating Coil Heating Rate [W] !Hourly
+1011,1,SPACE4-1 ZONE COIL,Heating Coil Heating Rate [W] !Hourly
+1014,1,SPACE5-1 ZONE COIL,Heating Coil Heating Rate [W] !Hourly
+1017,1,OA HEATING COIL 1,Heating Coil Heating Rate [W] !Hourly
+1020,1,MAIN HEATING COIL 1,Heating Coil Heating Rate [W] !Hourly
+1071,1,OA COOLING COIL 1,Cooling Coil Total Cooling Rate [W] !Hourly
+1072,1,OA COOLING COIL 1,Cooling Coil Sensible Cooling Rate [W] !Hourly
+1075,1,MAIN COOLING COIL 1,Cooling Coil Total Cooling Rate [W] !Hourly
+1076,1,MAIN COOLING COIL 1,Cooling Coil Sensible Cooling Rate [W] !Hourly

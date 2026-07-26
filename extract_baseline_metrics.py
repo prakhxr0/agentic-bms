@@ -1,18 +1,12 @@
 #!/usr/bin/env python
-"""Extract baseline metrics from simulation outputs (SQL + ESO)."""
+"""Extract metrics from simulation outputs (SQL + ESO) — works on any output folder."""
 
 import json
 import sqlite3
 import re
 import os
+import argparse
 from collections import defaultdict
-
-# Paths
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-SQL_PATH = os.path.join(BASE_DIR, "outputs", "baseline", "eplusout.sql")
-ESO_PATH = os.path.join(BASE_DIR, "outputs", "baseline", "eplusout.eso")
-LOG_PATH = os.path.join(BASE_DIR, "outputs", "baseline", "eplusout.err")
-OUT_PATH = os.path.join(BASE_DIR, "baseline_metrics.json")
 
 JOULES_PER_KWH = 3.6e6
 
@@ -55,10 +49,13 @@ def query_meter_data(conn, meter_names, env_idx):
         data[name].append(value)
     return dict(data)
 
-def extract_energy_metrics():
+def extract_energy_metrics(sql_path, log_path):
     """Extract total kWh and peak kW from Electricity:Facility."""
-    print("\nExtracting energy metrics from SQLite...")
-    conn = sqlite3.connect(SQL_PATH)
+    print(f"\nExtracting energy metrics from SQLite: {sql_path}")
+    if not os.path.exists(sql_path):
+        print(f"Error: SQL file not found: {sql_path}")
+        return None, None, None, None, None
+    conn = sqlite3.connect(sql_path)
     env_idx = find_environment_period_index(conn)
     if env_idx is None:
         print("Error: Could not find any environment period")
@@ -102,13 +99,16 @@ def extract_energy_metrics():
 
     return total_kwh, peak_kw, building_kwh, cooling_kwh, heating_kwh
 
-def extract_pmv_metrics():
+def extract_pmv_metrics(eso_path):
     """Extract PMV comfort metrics from ESO (zone thermal comfort variables)."""
-    print("\nExtracting PMV metrics from ESO...")
+    print(f"\nExtracting PMV metrics from ESO: {eso_path}")
+    if not os.path.exists(eso_path):
+        print(f"Error: ESO file not found: {eso_path}")
+        return {}
     metadata = {}
     data = defaultdict(list)
 
-    with open(ESO_PATH, "r") as f:
+    with open(eso_path, "r") as f:
         for line in f:
             line = line.strip()
             if not line or line.startswith("Program Version"):
@@ -193,20 +193,38 @@ def extract_pmv_metrics():
     return zone_metrics
 
 def main():
+    parser = argparse.ArgumentParser(description="Extract metrics from simulation outputs")
+    parser.add_argument("--output-dir", type=str, default="outputs/baseline",
+                        help="Directory containing eplusout.sql, .eso, .err")
+    parser.add_argument("--output-json", type=str, default=None,
+                        help="Path for output JSON (default: <output-dir>_metrics.json)")
+    args = parser.parse_args()
+
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    out_dir = os.path.join(base_dir, args.output_dir) if not os.path.isabs(args.output_dir) else args.output_dir
+
+    sql_path = os.path.join(out_dir, "eplusout.sql")
+    eso_path = os.path.join(out_dir, "eplusout.eso")
+    log_path = os.path.join(out_dir, "eplusout.err")
+
+    json_path = args.output_json
+    if json_path is None:
+        json_path = os.path.join(base_dir, os.path.basename(out_dir) + "_metrics.json")
+
     print("=" * 50)
-    print("Extracting Baseline Metrics")
+    print(f"Extracting Metrics from: {out_dir}")
     print("=" * 50)
 
     # Energy (SQL)
-    total_kwh, peak_kw, building_kwh, cooling_kwh, heating_kwh = extract_energy_metrics()
+    total_kwh, peak_kw, building_kwh, cooling_kwh, heating_kwh = extract_energy_metrics(sql_path, log_path)
 
     # PMV (ESO)
-    zone_metrics = extract_pmv_metrics()
+    zone_metrics = extract_pmv_metrics(eso_path)
 
-    # Total hours (from log if available, else 8760)
+    # Total hours from log
     total_hours = 0
-    if os.path.exists(LOG_PATH):
-        with open(LOG_PATH, "r") as f:
+    if os.path.exists(log_path):
+        with open(log_path, "r") as f:
             content = f.read()
         step_lines = [l for l in content.split("\n") if l.startswith("Step ")]
         total_hours = len(step_lines)
@@ -214,7 +232,7 @@ def main():
             print(f"Simulation timesteps: {total_hours}")
     if total_hours == 0:
         total_hours = 8760
-        print(f"Simulation timesteps: {total_hours} (from 1-year run period)")
+        print(f"Simulation timesteps: {total_hours} (fallback)")
 
     # Compose JSON
     metrics = {
@@ -238,9 +256,9 @@ def main():
             "comfortable_timesteps": zm["comfortable_timesteps"],
         }
 
-    with open(OUT_PATH, "w") as f:
+    with open(json_path, "w") as f:
         json.dump(metrics, f, indent=2)
-    print(f"\nMetrics saved to: {OUT_PATH}")
+    print(f"\nMetrics saved to: {json_path}")
 
 if __name__ == "__main__":
     main()

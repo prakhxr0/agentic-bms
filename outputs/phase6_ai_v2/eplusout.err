@@ -1,0 +1,27 @@
+Program Version,EnergyPlus, Version 26.1.0-6f2e40d102, YMD=2026.07.26 03:04,
+   ************* PythonPlugin: Class Controller imported from: C:\Users\prakh\Downloads\proj\eco-loop-building-agent\plugin.py
+   ************* Beginning Zone Sizing Calculations
+   ************* Beginning System Sizing Calculations
+   ************* Beginning Plant Sizing Calculations
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Testing Individual Supply Air Path Integrity
+   ************* All Supply Air Paths passed integrity testing
+   ************* Testing Individual Return Air Path Integrity
+   ************* All Return Air Paths passed integrity testing
+   ************* No node connection errors were found.
+   ************* Beginning Simulation
+   ** Warning ** Data Exchange API: An EnergyManagementSystem:Actuator seems to be already defined in the EnergyPlus File and named 'OVERRIDECOOLSCHEDULE'.
+   **   ~~~   ** Occurred for componentType='SCHEDULE:CONSTANT', controlType='SCHEDULE VALUE', uniqueKey='CLG-SETP-SCH'.
+   **   ~~~   ** The getActuatorHandle function will still return the handle (= 21) but caller should take note that there is a risk of overwriting.
+   ** Warning ** Data Exchange API: An EnergyManagementSystem:Actuator seems to be already defined in the EnergyPlus File and named 'OVERRIDEHEATSCHEDULE'.
+   **   ~~~   ** Occurred for componentType='SCHEDULE:CONSTANT', controlType='SCHEDULE VALUE', uniqueKey='HTG-SETP-SCH'.
+   **   ~~~   ** The getActuatorHandle function will still return the handle (= 19) but caller should take note that there is a risk of overwriting.
+   ************* Simulation Error Summary *************
+   ** Warning ** The following Report Variables were requested but not generated -- check.rdd file
+   **   ~~~   ** Either the IDF did not contain these elements, the variable name is misspelled,
+   **   ~~~   ** or the requested variable is an advanced output which requires Output : Diagnostics, DisplayAdvancedReportVariables;
+   ************* Key=*, VarName=ZONE PEOPLE TOTAL NUMBER, Frequency=Hourly
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 2 Warning; 0 Severe Errors; Elapsed Time=00hr 56min 12.24sec
