@@ -8,6 +8,12 @@
 
 ---
 
+- [System Architecture](system_architecture.md)
+- [Presentation](Presentation_Honeywell_Hackathon.pdf)
+- [Dashboard](https://dashboard-honeywell.vercel.app/)
+
+---
+
 ## Problem Statement
 
 HVAC systems account for over 40% of commercial building energy consumption. Traditional fixed setpoints (e.g., constant 24°C cooling / 21°C heating) fail to adapt to outdoor weather forecasts, real-time occupant comfort metrics, and dynamic thermal inertia, leading to significant overcooling and wasted energy.

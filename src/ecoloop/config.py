@@ -11,12 +11,14 @@ EPLUS_INSTALL = Path(os.getenv("EPLUS_INSTALL", r"C:\EnergyPlusV26-1-0"))
 
 # Model & weather paths
 IDF_PATH = ROOT / "models" / "5ZoneAirCooled_summer.idf"
+IDF_PATH_1D = ROOT / "models" / "5ZoneAirCooled_summer_1d.idf"
 EPW_PATH = Path(os.getenv("EPW_PATH", str(EPLUS_INSTALL / "WeatherData" / "USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw")))
 
 # Output directories
 OUTPUT_DIR_BASELINE = ROOT / "outputs" / "baseline"
 OUTPUT_DIR_WIRING = ROOT / "outputs" / "wiring_test"
 OUTPUT_DIR_AI = ROOT / "outputs" / "ai_run"
+OUTPUT_DIR_DEMO = ROOT / "outputs" / "demo_run"
 
 # Run period (July 1-7)
 RUN_PERIOD_START_MONTH = 7
