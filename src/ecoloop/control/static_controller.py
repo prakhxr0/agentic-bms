@@ -1,7 +1,7 @@
 """Static controller - hardcoded 26°C/18°C test setpoints for wiring verification."""
 
-from src.ecoloop.sim.environment import is_sizing_period
-from src.ecoloop.config import COOL_SCHEDULE_NAME, HEAT_SCHEDULE_NAME
+from ecoloop.sim.environment import is_sizing_period
+from ecoloop.config import COOL_SCHEDULE_NAME, HEAT_SCHEDULE_NAME
 
 
 def apply_static_test_setpoints(state, api) -> bool:

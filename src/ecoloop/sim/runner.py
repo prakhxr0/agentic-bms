@@ -1,5 +1,6 @@
 """Single entrypoint for all simulation modes."""
 
+import os
 import subprocess
 import shutil
 from pathlib import Path
@@ -13,7 +14,7 @@ from ecoloop.config import (
 EPLUS_EXE = EPLUS_INSTALL / "energyplus.exe"
 
 
-def run_simulation(idf_path: Path, epw_path: Path, output_dir: Path, plugin: bool = True) -> int:
+def run_simulation(idf_path: Path, epw_path: Path, output_dir: Path, plugin: bool = True, control_mode: str = "static_test") -> int:
     """
     Run EnergyPlus simulation.
     Returns exit code (0 = success).
@@ -34,8 +35,11 @@ def run_simulation(idf_path: Path, epw_path: Path, output_dir: Path, plugin: boo
         str(idf_path),
     ]
 
-    print(f"[RUNNER] {' '.join(cmd)}")
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
+    env = os.environ.copy()
+    env["ECOLOOP_CONTROL_MODE"] = control_mode
+
+    print(f"[RUNNER] {' '.join(cmd)} (control_mode={control_mode})")
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=3600, env=env)
 
     # Write stdout/stderr for debugging
     (output_dir / "stdout.log").write_text(result.stdout)
@@ -75,15 +79,12 @@ def run(control_mode: str = "static_test") -> dict:
         idf = IDF_PATH
         out = OUTPUT_DIR_AI
         plugin = True
+        from ecoloop.io.state_store import clear_state
+        clear_state()
     else:
         raise ValueError(f"Unknown control_mode: {control_mode}")
 
-    # For baseline, temporarily swap plugin IDF to noplugin version
-    if not plugin:
-        # The noplugin IDF already has PythonPlugin stripped
-        pass
-
-    rc = run_simulation(idf, EPW_PATH, out, plugin=plugin)
+    rc = run_simulation(idf, EPW_PATH, out, plugin=plugin, control_mode=control_mode)
     if rc != 0:
         return {"error": f"Simulation failed with exit code {rc}", "exit_code": rc}
 

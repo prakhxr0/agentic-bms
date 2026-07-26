@@ -1,0 +1,13 @@
+{
+  "total_electricity_kwh": 2741.691395500002,
+  "cooling_electricity_kwh": 173.69637065153628,
+  "heating_electricity_kwh": 0.0,
+  "avg_pmv": -0.6557218519246609,
+  "avg_zone_temp_c": 22.955860187717754,
+  "schedule_values": {
+    "CLG-SETP-SCH": [],
+    "HTG-SETP-SCH": []
+  },
+  "control_mode": "baseline",
+  "output_dir": "C:\\Users\\prakh\\Downloads\\proj\\eco-loop-building-agent\\outputs\\baseline"
+}

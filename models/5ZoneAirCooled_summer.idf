@@ -165,7 +165,7 @@
     1,                       !- Begin Day of Month
     ,                        !- Begin Year
     7,                       !- End Month
-    1,                       !- End Day of Month
+    7,                       !- End Day of Month
     ,                        !- End Year
     Tuesday,                 !- Day of Week for Start Day
     Yes,                     !- Use Weather File Holidays and Special Days
@@ -3584,20 +3584,6 @@
     Plugin Instance,          !- Python Plugin Instance Name
     CoolingSetpoint,          !- Global Variable 1 Name
     HeatingSetpoint;          !- Global Variable 2 Name
-
-  EnergyManagementSystem:GlobalVariable,
-    EMS_CoolingSetpoint,      !- Variable 1 Name
-    EMS_HeatingSetpoint;      !- Variable 2 Name
-
-  EnergyManagementSystem:Program,
-    InitSetpoints,            !- Name
-    SET EMS_CoolingSetpoint = 24.0,  !- Default cooling setpoint
-    SET EMS_HeatingSetpoint = 21.0;  !- Default heating setpoint
-
-  EnergyManagementSystem:ProgramCallingManager,
-    Init Setpoint Globals,    !- Name
-    BeginNewEnvironment,       !- Calling Point (runs before warmup)
-    InitSetpoints;            !- Program Name 1
 
   Output:Variable,*,Zone Thermostat Cooling Setpoint Temperature,hourly;
   Output:Variable,*,Zone Thermostat Heating Setpoint Temperature,hourly;

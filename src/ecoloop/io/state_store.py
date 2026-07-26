@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from src.ecoloop.config import ROOT
+from ecoloop.config import ROOT
 
 STATE_FILE = ROOT / "state_history.jsonl"
 

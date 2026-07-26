@@ -65,7 +65,7 @@ def _call_llm(user_prompt: str) -> str | None:
             {"role": "user", "content": user_prompt},
         ],
         "temperature": 0.6,
-        "max_tokens": 2048,
+        "max_tokens": 128,
         "top_p": 0.95,
     }).encode()
 
@@ -80,7 +80,7 @@ def _call_llm(user_prompt: str) -> str | None:
 
     try:
         start = time.time()
-        with urllib.request.urlopen(req, timeout=30) as resp:
+        with urllib.request.urlopen(req, timeout=10) as resp:
             body = json.loads(resp.read().decode())
         elapsed = time.time() - start
         raw = body["choices"][0]["message"]["content"]

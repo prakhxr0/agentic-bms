@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-from src.ecoloop.config import EPW_PATH
+from ecoloop.config import EPW_PATH
 
 
 _epw_cache = []

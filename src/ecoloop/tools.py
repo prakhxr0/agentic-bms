@@ -1,7 +1,7 @@
 """Agent tool functions - get zone state, energy, weather, errors."""
 
-from src.ecoloop.io.weather import get_weather_lookahead
-from src.ecoloop.io.state_store import read_state
+from ecoloop.io.weather import get_weather_lookahead
+from ecoloop.io.state_store import read_state
 
 
 # Global EMS context (set by plugin)

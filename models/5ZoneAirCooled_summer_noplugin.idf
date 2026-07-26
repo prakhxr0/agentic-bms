@@ -161,11 +161,11 @@
 
   RunPeriod,
     Run Period 1,            !- Name
-    1,                       !- Begin Month
+    7,                       !- Begin Month
     1,                       !- Begin Day of Month
     ,                        !- Begin Year
     7,                       !- End Month
-    1,                       !- End Day of Month
+    7,                       !- End Day of Month
     ,                        !- End Year
     Tuesday,                 !- Day of Week for Start Day
     Yes,                     !- Use Weather File Holidays and Special Days
@@ -3573,48 +3573,7 @@
   Output:Surfaces:List,ViewFactorInfo;
 
 
-  PythonPlugin:Instance,
-    Plugin Instance,          !- Name
-    No,                       !- Run During Warmup Days
-    plugin,                   !- Python Module Name
-    Controller;               !- Plugin Class Name
-
-  PythonPlugin:Variables,
-    ZoneSetpointGlobals,      !- Name
-    Plugin Instance,          !- Python Plugin Instance Name
-    CoolingSetpoint,          !- Global Variable 1 Name
-    HeatingSetpoint;          !- Global Variable 2 Name
-
-  EnergyManagementSystem:GlobalVariable,
-    EMS_CoolingSetpoint,      !- Variable 1 Name
-    EMS_HeatingSetpoint;      !- Variable 2 Name
-
-  EnergyManagementSystem:Actuator,
-    OverrideCoolSchedule,     !- Name
-    Clg-SetP-Sch,             !- Actuated Component Unique Name
-    Schedule:Constant,        !- Actuated Component Type
-    Schedule Value;           !- Actuated Component Control Type
-
-  EnergyManagementSystem:Actuator,
-    OverrideHeatSchedule,     !- Name
-    Htg-SetP-Sch,             !- Actuated Component Unique Name
-    Schedule:Constant,        !- Actuated Component Type
-    Schedule Value;           !- Actuated Component Control Type
-
-  EnergyManagementSystem:Program,
-    InitSetpoints,            !- Name
-    SET EMS_CoolingSetpoint = 24.0,  !- Default cooling setpoint
-    SET EMS_HeatingSetpoint = 21.0;  !- Default heating setpoint
-
-  EnergyManagementSystem:ProgramCallingManager,
-    Init Setpoint Globals,    !- Name
-    BeginNewEnvironment,       !- Calling Point (runs before warmup)
-    InitSetpoints;            !- Program Name 1
-
-  EnergyManagementSystem:Program,
-    SetOverrideSetpoints,     !- Name
-    SET OverrideCoolSchedule = EMS_CoolingSetpoint,  !- Read from plugin global
-    SET OverrideHeatSchedule = EMS_HeatingSetpoint;  !- Read from plugin global
+  
 
   Output:Variable,*,Zone Thermostat Cooling Setpoint Temperature,hourly;
   Output:Variable,*,Zone Thermostat Heating Setpoint Temperature,hourly;
