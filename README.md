@@ -10,7 +10,7 @@
 *Candidate ID: 20518043*
 - [POC Demo Video](https://drive.google.com/file/d/1ieBUQ4MHPLnhh2ycpOaxJB7iP1LR6gKw/view?usp=sharing)
 - [System Architecture](system_architecture.md)
-- [Presentation](Presentation_Honeywell_Hackathon.pdf)
+- [Presentation](Presentation_Honeywell_Campus-Connect.pdf)
 - [Dashboard](https://dashboard-honeywell.vercel.app/)
 
 ---
