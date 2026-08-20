@@ -1,12 +1,9 @@
 # Eco - Loop Building Agents — System Architecture
 
-**Honeywell Hackathon Physical AI PoC** | EnergyPlus 26.1.0 · Gemma-4-E2B LLM
+EnergyPlus 26.1.0 · Gemma-4-E2B LLM
 
 ---
 
-Candidate ID: 20518043
-
----
 
 ## 1. Problem Background
 

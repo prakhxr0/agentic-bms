@@ -1,18 +1,9 @@
-![Honeywell](assets/Honeywell-Logo.png)
-
 # Eco - Loop Building Agent
 
 **LLM-Driven Autonomous HVAC Setpoint Optimization for EnergyPlus Co-Simulation**  
-*Built for the Honeywell Campus Connect*
-*Candidate ID: 20518043*
 
 ---
-*Candidate ID: 20518043*
-- [POC Demo Video](https://drive.google.com/file/d/1ieBUQ4MHPLnhh2ycpOaxJB7iP1LR6gKw/view?usp=sharing)
 - [System Architecture](system_architecture.md)
-- [Presentation](Presentation_Honeywell_Campus-Connect.pdf)
-- [Dashboard](https://dashboard-honeywell.vercel.app/)
-
 ---
 
 ## Problem Statement
